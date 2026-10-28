@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Tài liệu NextFarm API
+    url: https://developers.nextfarm.vn
+    about: Hướng dẫn, tham chiếu API, sandbox
+  - name: Báo lỗ hổng bảo mật
+    url: https://github.com/nextx-organization/nextfarm-sdk-node/blob/main/SECURITY.md
+    about: Không mở issue công khai cho lỗ hổng
