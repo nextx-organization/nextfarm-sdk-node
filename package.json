@@ -1,0 +1,71 @@
+{
+  "name": "@nextfarm/sdk",
+  "version": "0.1.0",
+  "description": "NextFarm API cho Node.js và TypeScript — kiểu đầy đủ sinh từ OpenAPI công khai",
+  "keywords": [
+    "nextfarm",
+    "agriculture",
+    "nong-nghiep",
+    "api",
+    "sdk",
+    "openapi",
+    "iot",
+    "gis",
+    "traceability"
+  ],
+  "homepage": "https://developers.nextfarm.vn/docs/sdk",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextx-organization/nextfarm-sdk-node.git"
+  },
+  "bugs": "https://github.com/nextx-organization/nextfarm-sdk-node/issues",
+  "license": "MIT",
+  "author": "NextFarm <support@nextfarm.vn>",
+  "sideEffects": false,
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "gen": "openapi-typescript openapi.json -o src/schema.d.ts",
+    "build": "rm -rf dist && tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json && cp src/schema.d.ts dist/esm/ && cp src/schema.d.ts dist/cjs/ && echo '{\"type\":\"commonjs\"}' > dist/cjs/package.json",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "openapi-fetch": "0.13.8"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.2",
+    "openapi-typescript": "7.13.0",
+    "typescript": "5.6.3"
+  },
+  "nextfarm": {
+    "specSha256": "d66420a488b728f54f08117a4dde1cf2d7208fed9c47b08da823238b3e276fe7"
+  }
+}
