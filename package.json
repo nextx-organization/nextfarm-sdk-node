@@ -1,6 +1,6 @@
 {
   "name": "@nextfarm/sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "NextFarm API cho Node.js và TypeScript — kiểu đầy đủ sinh từ OpenAPI công khai",
   "keywords": [
     "nextfarm",
