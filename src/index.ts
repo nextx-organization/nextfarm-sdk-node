@@ -1,6 +1,5 @@
 /**
- * NextFarm SDK cho Node.js/TypeScript. Kiểu `paths` sinh từ https://developers.nextfarm.vn/openapi.json — chỉ gồm các tuyến
- * khoá API gọi được — nên trình soạn thảo gợi đúng đường, tham số và hình dạng phản hồi.
+ * NextFarm SDK for Node.js and TypeScript. Types are generated from https://developers.nextfarm.vn/openapi.json.
  *
  *   const nf = createNextFarmClient({ apiKey: process.env.NEXTFARM_API_KEY! });
  *   const { data, error } = await nf.GET("/api/v1/iot/devices", { params: { query: { page: 1 } } });
@@ -16,19 +15,19 @@ export const PROD_URL = "https://api-prod.nextfarm.vn";
 export const SANDBOX_URL = "https://api-dev.nextfarm.vn";
 
 export interface NextFarmOptions {
-  /** Khoá API `nfk_…` hoặc access token của ứng dụng OAuth. */
+  /** API key (`nfk_...`) or OAuth access token. */
   apiKey: string;
-  /** Mặc định prod; thử nghiệm dùng `SANDBOX_URL`. */
+  /** Defaults to production. Use `SANDBOX_URL` for testing. */
   baseUrl?: string;
-  /** Ngôn ngữ thông báo lỗi: `vi` (mặc định) hoặc `en`. */
+  /** Language of error messages: `vi` (default) or `en`. */
   language?: "vi" | "en";
-  /** Thay fetch (proxy, đo đạc, kiểm thử). */
+  /** Custom fetch implementation. */
   fetch?: typeof globalThis.fetch;
 }
 
 export type NextFarmClient = Client<paths>;
 
-/** Lỗi theo RFC 7807 mà API trả về khi `error` khác rỗng. */
+/** RFC 7807 problem details returned in `error`. */
 export interface NextFarmProblem {
   type?: string;
   title?: string;
@@ -40,14 +39,13 @@ export interface NextFarmProblem {
 }
 
 export function createNextFarmClient({ apiKey, baseUrl = PROD_URL, language = "vi", fetch }: NextFarmOptions): NextFarmClient {
-  if (!apiKey) throw new Error("NextFarm SDK: thiếu apiKey");
+  if (!apiKey) throw new Error("NextFarm SDK: apiKey is required");
   return createClient<paths>({
     baseUrl: baseUrl.replace(/\/+$/, ""),
     fetch,
     headers: {
       Authorization: `Bearer ${apiKey}`,
       "Accept-Language": language,
-      // Trình duyệt tự bỏ User-Agent nên chỉ có tác dụng phía máy chủ.
       "User-Agent": `nextfarm-sdk-node/${VERSION}`,
     },
   });

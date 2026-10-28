@@ -1,7 +1,7 @@
 {
   "name": "@nextfarm/sdk",
-  "version": "0.1.1",
-  "description": "NextFarm API cho Node.js và TypeScript — kiểu đầy đủ sinh từ OpenAPI công khai",
+  "version": "0.1.2",
+  "description": "Official Node.js and TypeScript client for the NextFarm API",
   "keywords": [
     "nextfarm",
     "agriculture",
@@ -66,6 +66,6 @@
     "typescript": "5.6.3"
   },
   "nextfarm": {
-    "specSha256": "d66420a488b728f54f08117a4dde1cf2d7208fed9c47b08da823238b3e276fe7"
+    "specSha256": "ac2308fc010521bb2e02d5192d9a44b14c07a9b15a2d89cc549cddf757b01942"
   }
 }

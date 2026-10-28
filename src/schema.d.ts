@@ -4165,8 +4165,8 @@ export interface paths {
             cookie?: never;
         };
         /**
-         * Bốn chế độ của cột AI + trợ lý đã bật chưa
-         * @description `available: false` nghĩa là máy chủ chưa khai khoá kết nối trợ lý — cột AI cấu hình được nhưng sẽ không chạy. Giao diện phải nói rõ điều đó.
+         * Danh mục chế độ của cột AI
+         * @description Các chế độ cột AI dùng được trong tự động hoá. `available: false` nghĩa là tính năng chưa bật cho không gian làm việc này: cột vẫn cấu hình được nhưng chưa tạo nội dung.
          */
         get: {
             parameters: {

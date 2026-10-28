@@ -1,6 +1,5 @@
 # Bảo mật
 
-Phát hiện lỗ hổng trong SDK hoặc NextFarm API, xin **không** mở issue công khai. Gửi về support@nextfarm.vn (tiêu đề "[Bảo mật]"),
-mô tả cách tái hiện. Chúng tôi phản hồi trong 3 ngày làm việc.
+Nếu phát hiện lỗ hổng bảo mật trong SDK hoặc NextFarm API, vui lòng không mở issue công khai. Hãy gửi email tới support@nextfarm.vn với tiêu đề bắt đầu bằng "[Bảo mật]", kèm cách tái hiện. Chúng tôi phản hồi trong vòng 3 ngày làm việc.
 
-Không đưa khoá API (`nfk_…`) vào mã nguồn, issue hay log. Lộ khoá thì thu hồi ngay ở developers.nextfarm.vn → Ứng dụng.
+Không đưa khoá API vào mã nguồn, issue hoặc log. Nếu khoá bị lộ, hãy thu hồi ngay tại developers.nextfarm.vn, mục Ứng dụng.
