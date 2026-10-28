@@ -37759,7 +37759,7 @@
   },
   "/api/v1/office/automations/ai-columns/catalog": {
    "get": {
-    "description": "`available: false` nghĩa là máy chủ chưa khai khoá kết nối trợ lý — cột AI cấu hình được nhưng sẽ không chạy. Giao diện phải nói rõ điều đó.",
+    "description": "Các chế độ cột AI dùng được trong tự động hoá. `available: false` nghĩa là tính năng chưa bật cho không gian làm việc này: cột vẫn cấu hình được nhưng chưa tạo nội dung.",
     "parameters": [],
     "responses": {
      "200": {
@@ -37773,7 +37773,7 @@
       "description": "OK"
      }
     },
-    "summary": "Bốn chế độ của cột AI + trợ lý đã bật chưa",
+    "summary": "Danh mục chế độ của cột AI",
     "tags": [
      "office"
     ],
