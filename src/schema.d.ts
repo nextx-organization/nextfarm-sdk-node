@@ -392,7 +392,7 @@ export interface paths {
         };
         /**
          * Danh sách chuồng trại
-         * @description Lọc theo facilityType (barn, pasture, feedlot, dairy, poultry_house, piggery, processing_plant, other) và status (active, inactive, maintenance). Phân trang.
+         * @description Lọc theo facilityType (barn, pasture, feedlot, dairy, poultry_house, piggery, processing_plant, other), status (active, inactive, maintenance) và branchId. Phân trang.
          */
         get: {
             parameters: {
@@ -400,6 +400,7 @@ export interface paths {
                     facilityType?: string;
                     status?: string;
                     sourceParcelId?: string;
+                    branchId?: string;
                     page?: number;
                     pageSize?: number;
                 };
@@ -778,7 +779,7 @@ export interface paths {
         };
         /**
          * Danh sách lô thửa
-         * @description Lọc theo bbox (minLon,minLat,maxLon,maxLat), zoneId, ownerId, cropTypeId, status. Phân trang. Bbox max 2°×2°, tối đa 1000 results.
+         * @description Lọc theo bbox (minLon,minLat,maxLon,maxLat), zoneId, ownerId, cropTypeId, status, branchId. Phân trang. Bbox max 2°×2°, tối đa 1000 results.
          */
         get: {
             parameters: {
@@ -788,6 +789,7 @@ export interface paths {
                     ownerId?: string;
                     cropTypeId?: string;
                     status?: string;
+                    branchId?: string;
                     page?: number;
                     pageSize?: number;
                     deleted?: boolean;
@@ -1479,6 +1481,7 @@ export interface paths {
                     page_size?: number;
                     deleted?: boolean;
                     include_stats?: boolean;
+                    branch_id?: string;
                 };
                 header?: never;
                 path?: never;
@@ -6584,6 +6587,8 @@ export interface components {
             /** Format: double */
             area_ha?: number | null;
             boundary_geo_json?: string | null;
+            /** Format: uuid */
+            branch_id?: string | null;
             /** Format: int32 */
             capacity?: number | null;
             facility_code?: string | null;
@@ -6617,6 +6622,8 @@ export interface components {
         "Gis.CreateParcelRequest": {
             boundary_geo_json?: string | null;
             /** Format: uuid */
+            branch_id?: string | null;
+            /** Format: uuid */
             crop_type_id?: string | null;
             /** Format: double */
             latitude?: number | null;
@@ -6644,6 +6651,8 @@ export interface components {
             /** Format: double */
             area_ha?: number;
             boundary_geo_json?: string | null;
+            /** Format: uuid */
+            branch_id?: string | null;
             /** Format: double */
             depth_m?: number | null;
             metadata?: string | null;
@@ -6693,6 +6702,8 @@ export interface components {
         };
         "Gis.CreateZoneRequest": {
             boundary_geo_json?: string | null;
+            /** Format: uuid */
+            branch_id?: string | null;
             code?: string | null;
             contact_person?: string | null;
             contact_phone?: string | null;
@@ -6803,6 +6814,8 @@ export interface components {
             /** Format: double */
             area_ha?: number | null;
             boundary_geo_json?: string | null;
+            /** Format: uuid */
+            branch_id?: string | null;
             /** Format: int32 */
             capacity?: number | null;
             /** Format: date-time */
@@ -6828,6 +6841,8 @@ export interface components {
             /** Format: double */
             area_ha?: number | null;
             boundary_geo_json?: string | null;
+            /** Format: uuid */
+            branch_id?: string | null;
             /** Format: int32 */
             capacity?: number | null;
             /** Format: date-time */
@@ -7156,6 +7171,8 @@ export interface components {
             /** Format: double */
             area_ha?: number | null;
             boundary_geo_json?: string | null;
+            /** Format: uuid */
+            branch_id?: string | null;
             /** Format: date-time */
             created_at?: string;
             crop_type?: components["schemas"]["Gis.ParcelCropTypeDto"];
@@ -7205,6 +7222,8 @@ export interface components {
             /** Format: double */
             area_ha?: number | null;
             boundary_geo_json?: string | null;
+            /** Format: uuid */
+            branch_id?: string | null;
             /** Format: date-time */
             created_at?: string;
             /** Format: uuid */
@@ -7550,6 +7569,8 @@ export interface components {
             /** Format: double */
             area_ha?: number | null;
             boundary_geo_json?: string | null;
+            /** Format: uuid */
+            branch_id?: string | null;
             /** Format: int32 */
             capacity?: number | null;
             facility_code?: string | null;
@@ -7559,6 +7580,12 @@ export interface components {
             /** Format: uuid */
             source_parcel_id?: string | null;
             status?: string | null;
+        };
+        "Gis.UpdateFacilityResult": {
+            /** Format: uuid */
+            branch_id?: string | null;
+            /** Format: uuid */
+            facility_id?: string;
         };
         "Gis.UpdateFarmerRequest": {
             full_name?: string | null;
@@ -7573,6 +7600,8 @@ export interface components {
         };
         "Gis.UpdateParcelRequest": {
             boundary_geo_json?: string | null;
+            /** Format: uuid */
+            branch_id?: string | null;
             /** Format: uuid */
             crop_type_id?: string | null;
             /** Format: uuid */
@@ -7597,6 +7626,8 @@ export interface components {
             /** Format: double */
             area_ha?: number;
             boundary_geo_json?: string | null;
+            /** Format: uuid */
+            branch_id?: string | null;
             /** Format: double */
             current_density?: number | null;
             current_species?: string | null;
@@ -7615,6 +7646,12 @@ export interface components {
             volume_m3?: number | null;
             water_source?: string | null;
         };
+        "Gis.UpdatePondResult": {
+            /** Format: uuid */
+            branch_id?: string | null;
+            /** Format: uuid */
+            pond_id?: string;
+        };
         "Gis.UpdateSeasonRequest": {
             /** Format: date */
             expected_harvest_on?: string | null;
@@ -7626,6 +7663,8 @@ export interface components {
         };
         "Gis.UpdateZoneRequest": {
             boundary_geo_json?: string | null;
+            /** Format: uuid */
+            branch_id?: string | null;
             code?: string | null;
             contact_person?: string | null;
             contact_phone?: string | null;
@@ -7638,6 +7677,8 @@ export interface components {
         };
         "Gis.ZoneDto": {
             boundary_geo_json?: string | null;
+            /** Format: uuid */
+            branch_id?: string | null;
             code?: string | null;
             contact_person?: string | null;
             contact_phone?: string | null;
@@ -7658,6 +7699,8 @@ export interface components {
             zone_type?: string | null;
         };
         "Gis.ZoneListItemDto": {
+            /** Format: uuid */
+            branch_id?: string | null;
             code?: string | null;
             contact_person?: string | null;
             contact_phone?: string | null;
@@ -7835,11 +7878,24 @@ export interface components {
             parcel_id?: string | null;
             scheme?: string | null;
         };
+        "Harvest.CreateFieldLogInputRequest": {
+            /** Format: uuid */
+            inventory_issue_id?: string | null;
+            /** Format: uuid */
+            item_id?: string;
+            item_name?: string | null;
+            lot_no?: string | null;
+            /** Format: double */
+            quantity?: number;
+            unit?: string | null;
+        };
         "Harvest.CreateFieldLogRequest": {
+            client_request_id?: string | null;
             /** Format: date-time */
             completed_at?: string | null;
             /** Format: uuid */
             for_owner_id?: string | null;
+            inputs?: components["schemas"]["Harvest.CreateFieldLogInputRequest"][] | null;
             organism_ids?: string[] | null;
             /** Format: uuid */
             parcel_id?: string;
@@ -7852,12 +7908,18 @@ export interface components {
             spray_phi_days?: number | null;
             spray_product_name?: string | null;
             title?: string | null;
+            work_type?: string | null;
         };
         "Harvest.CreateHusbandryLogRequest": {
             /** Format: double */
             avg_weight_g?: number | null;
+            /** Format: uuid */
+            feed_item_id?: string | null;
+            feed_item_name?: string | null;
             /** Format: int32 */
             head_count?: number | null;
+            /** Format: uuid */
+            inventory_issue_id?: string | null;
             kind?: string | null;
             material_name?: string | null;
             note?: string | null;

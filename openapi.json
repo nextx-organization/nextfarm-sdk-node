@@ -528,6 +528,11 @@
       "nullable": true,
       "type": "string"
      },
+     "branch_id": {
+      "format": "uuid",
+      "nullable": true,
+      "type": "string"
+     },
      "capacity": {
       "format": "int32",
       "nullable": true,
@@ -631,6 +636,11 @@
       "nullable": true,
       "type": "string"
      },
+     "branch_id": {
+      "format": "uuid",
+      "nullable": true,
+      "type": "string"
+     },
      "crop_type_id": {
       "format": "uuid",
       "nullable": true,
@@ -701,6 +711,11 @@
       "type": "number"
      },
      "boundary_geo_json": {
+      "nullable": true,
+      "type": "string"
+     },
+     "branch_id": {
+      "format": "uuid",
       "nullable": true,
       "type": "string"
      },
@@ -839,6 +854,11 @@
     "additionalProperties": false,
     "properties": {
      "boundary_geo_json": {
+      "nullable": true,
+      "type": "string"
+     },
+     "branch_id": {
+      "format": "uuid",
       "nullable": true,
       "type": "string"
      },
@@ -1186,6 +1206,11 @@
       "nullable": true,
       "type": "string"
      },
+     "branch_id": {
+      "format": "uuid",
+      "nullable": true,
+      "type": "string"
+     },
      "capacity": {
       "format": "int32",
       "nullable": true,
@@ -1252,6 +1277,11 @@
       "type": "number"
      },
      "boundary_geo_json": {
+      "nullable": true,
+      "type": "string"
+     },
+     "branch_id": {
+      "format": "uuid",
       "nullable": true,
       "type": "string"
      },
@@ -2244,6 +2274,11 @@
       "nullable": true,
       "type": "string"
      },
+     "branch_id": {
+      "format": "uuid",
+      "nullable": true,
+      "type": "string"
+     },
      "created_at": {
       "format": "date-time",
       "type": "string"
@@ -2384,6 +2419,11 @@
       "type": "number"
      },
      "boundary_geo_json": {
+      "nullable": true,
+      "type": "string"
+     },
+     "branch_id": {
+      "format": "uuid",
       "nullable": true,
       "type": "string"
      },
@@ -3377,6 +3417,11 @@
       "nullable": true,
       "type": "string"
      },
+     "branch_id": {
+      "format": "uuid",
+      "nullable": true,
+      "type": "string"
+     },
      "capacity": {
       "format": "int32",
       "nullable": true,
@@ -3405,6 +3450,21 @@
      },
      "status": {
       "nullable": true,
+      "type": "string"
+     }
+    },
+    "type": "object"
+   },
+   "Gis.UpdateFacilityResult": {
+    "additionalProperties": false,
+    "properties": {
+     "branch_id": {
+      "format": "uuid",
+      "nullable": true,
+      "type": "string"
+     },
+     "facility_id": {
+      "format": "uuid",
       "type": "string"
      }
     },
@@ -3451,6 +3511,11 @@
     "additionalProperties": false,
     "properties": {
      "boundary_geo_json": {
+      "nullable": true,
+      "type": "string"
+     },
+     "branch_id": {
+      "format": "uuid",
       "nullable": true,
       "type": "string"
      },
@@ -3521,6 +3586,11 @@
       "nullable": true,
       "type": "string"
      },
+     "branch_id": {
+      "format": "uuid",
+      "nullable": true,
+      "type": "string"
+     },
      "current_density": {
       "format": "double",
       "nullable": true,
@@ -3577,6 +3647,21 @@
     },
     "type": "object"
    },
+   "Gis.UpdatePondResult": {
+    "additionalProperties": false,
+    "properties": {
+     "branch_id": {
+      "format": "uuid",
+      "nullable": true,
+      "type": "string"
+     },
+     "pond_id": {
+      "format": "uuid",
+      "type": "string"
+     }
+    },
+    "type": "object"
+   },
    "Gis.UpdateSeasonRequest": {
     "additionalProperties": false,
     "properties": {
@@ -3611,6 +3696,11 @@
     "additionalProperties": false,
     "properties": {
      "boundary_geo_json": {
+      "nullable": true,
+      "type": "string"
+     },
+     "branch_id": {
+      "format": "uuid",
       "nullable": true,
       "type": "string"
      },
@@ -3654,6 +3744,11 @@
     "additionalProperties": false,
     "properties": {
      "boundary_geo_json": {
+      "nullable": true,
+      "type": "string"
+     },
+     "branch_id": {
+      "format": "uuid",
       "nullable": true,
       "type": "string"
      },
@@ -3717,6 +3812,11 @@
    "Gis.ZoneListItemDto": {
     "additionalProperties": false,
     "properties": {
+     "branch_id": {
+      "format": "uuid",
+      "nullable": true,
+      "type": "string"
+     },
      "code": {
       "nullable": true,
       "type": "string"
@@ -4240,9 +4340,44 @@
     },
     "type": "object"
    },
+   "Harvest.CreateFieldLogInputRequest": {
+    "additionalProperties": false,
+    "properties": {
+     "inventory_issue_id": {
+      "format": "uuid",
+      "nullable": true,
+      "type": "string"
+     },
+     "item_id": {
+      "format": "uuid",
+      "type": "string"
+     },
+     "item_name": {
+      "nullable": true,
+      "type": "string"
+     },
+     "lot_no": {
+      "nullable": true,
+      "type": "string"
+     },
+     "quantity": {
+      "format": "double",
+      "type": "number"
+     },
+     "unit": {
+      "nullable": true,
+      "type": "string"
+     }
+    },
+    "type": "object"
+   },
    "Harvest.CreateFieldLogRequest": {
     "additionalProperties": false,
     "properties": {
+     "client_request_id": {
+      "nullable": true,
+      "type": "string"
+     },
      "completed_at": {
       "format": "date-time",
       "nullable": true,
@@ -4252,6 +4387,13 @@
       "format": "uuid",
       "nullable": true,
       "type": "string"
+     },
+     "inputs": {
+      "items": {
+       "$ref": "#/components/schemas/Harvest.CreateFieldLogInputRequest"
+      },
+      "nullable": true,
+      "type": "array"
      },
      "organism_ids": {
       "items": {
@@ -4297,6 +4439,10 @@
      "title": {
       "nullable": true,
       "type": "string"
+     },
+     "work_type": {
+      "nullable": true,
+      "type": "string"
      }
     },
     "type": "object"
@@ -4309,10 +4455,24 @@
       "nullable": true,
       "type": "number"
      },
+     "feed_item_id": {
+      "format": "uuid",
+      "nullable": true,
+      "type": "string"
+     },
+     "feed_item_name": {
+      "nullable": true,
+      "type": "string"
+     },
      "head_count": {
       "format": "int32",
       "nullable": true,
       "type": "integer"
+     },
+     "inventory_issue_id": {
+      "format": "uuid",
+      "nullable": true,
+      "type": "string"
      },
      "kind": {
       "nullable": true,
@@ -33774,7 +33934,7 @@
   },
   "/api/v1/gis/facilities": {
    "get": {
-    "description": "Lọc theo facilityType (barn, pasture, feedlot, dairy, poultry_house, piggery, processing_plant, other) và status (active, inactive, maintenance). Phân trang.",
+    "description": "Lọc theo facilityType (barn, pasture, feedlot, dairy, poultry_house, piggery, processing_plant, other), status (active, inactive, maintenance) và branchId. Phân trang.",
     "parameters": [
      {
       "in": "query",
@@ -33793,6 +33953,14 @@
      {
       "in": "query",
       "name": "sourceParcelId",
+      "schema": {
+       "format": "uuid",
+       "type": "string"
+      }
+     },
+     {
+      "in": "query",
+      "name": "branchId",
       "schema": {
        "format": "uuid",
        "type": "string"
@@ -34219,7 +34387,7 @@
   },
   "/api/v1/gis/parcels": {
    "get": {
-    "description": "Lọc theo bbox (minLon,minLat,maxLon,maxLat), zoneId, ownerId, cropTypeId, status. Phân trang. Bbox max 2°×2°, tối đa 1000 results.",
+    "description": "Lọc theo bbox (minLon,minLat,maxLon,maxLat), zoneId, ownerId, cropTypeId, status, branchId. Phân trang. Bbox max 2°×2°, tối đa 1000 results.",
     "parameters": [
      {
       "in": "query",
@@ -34256,6 +34424,14 @@
       "in": "query",
       "name": "status",
       "schema": {
+       "type": "string"
+      }
+     },
+     {
+      "in": "query",
+      "name": "branchId",
+      "schema": {
+       "format": "uuid",
        "type": "string"
       }
      },
@@ -34996,6 +35172,14 @@
       "schema": {
        "default": false,
        "type": "boolean"
+      }
+     },
+     {
+      "in": "query",
+      "name": "branch_id",
+      "schema": {
+       "format": "uuid",
+       "type": "string"
       }
      }
     ],
