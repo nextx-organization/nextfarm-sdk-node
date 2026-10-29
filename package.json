@@ -1,6 +1,6 @@
 {
   "name": "@nextfarm/sdk",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Official Node.js and TypeScript client for the NextFarm API",
   "keywords": [
     "nextfarm",
@@ -66,6 +66,6 @@
     "typescript": "5.6.3"
   },
   "nextfarm": {
-    "specSha256": "ac2308fc010521bb2e02d5192d9a44b14c07a9b15a2d89cc549cddf757b01942"
+    "specSha256": "bc565690642622a4ae924734b7f2b60f0ff10837197ef39cc7d2710e8b95b3ee"
   }
 }
